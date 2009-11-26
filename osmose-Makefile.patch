@@ -1,0 +1,17 @@
+--- Osmose-0-9-1/Makefile~	2009-11-01 10:06:49.000000000 +0000
++++ Osmose-0-9-1/Makefile	2009-11-26 17:09:36.846864071 +0000
+@@ -48,12 +48,12 @@
+ 
+ .SUFFIXES: .cpp .o
+ .cpp.o:
+-	$(CC) $(CFLAGS) -c $*.cpp -o $*.o
++	$(CXX) $(CFLAGS) -c $*.cpp -o $*.o
+ 
+ all:  libs disasm osmose stripexe
+ 
+ osmose: $(z80_lib) $(OSM_OBJS) $(OPT_OBJS)
+-	$(CC)  $(CFLAGS) $(OSM_OBJS) $(Z80_LIB) $(OPT_OBJS) $(UNZIP_LIB) $(Z_LIB) -o $(OSM_EXE) $(LFLAGS)
++	$(CXX)  $(CFLAGS) $(LDFLAGS) $(OSM_OBJS) $(Z80_LIB) $(OPT_OBJS) $(UNZIP_LIB) $(Z_LIB) -o $(OSM_EXE) $(LFLAGS)
+ 
+ disasm: $(DISASM_OBJS)
+ 
