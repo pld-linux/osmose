@@ -2,16 +2,17 @@
 Summary:	Sega Master System Emulator
 Summary(pl.UTF-8):	Emulator Sega Master System
 Name:		osmose
-Version:	0.9.1
+Version:	0.9.2
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Games
 Source0:	http://bcz.emu-france.com/osmose/Osmose-%{file_version}-src.zip
-# Source0-md5:	fafa52a39e6fe194b34fa2cfd0df7466
+# Source0-md5:	4b9714d87c02d862256f169cb112e293
 Patch0:		%{name}-Makefile.patch
 URL:		http://bcz.emu-france.com/
 BuildRequires:	OpenGL-devel
 BuildRequires:	SDL-devel
+BuildRequires:	dos2unix
 BuildRequires:	unzip
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -26,6 +27,7 @@ przede wszystkim dla Linuksa.
 
 %prep
 %setup -q -n Osmose-%{file_version}
+dos2unix Makefile
 %patch0 -p1
 
 %build
