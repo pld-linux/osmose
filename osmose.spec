@@ -12,7 +12,8 @@ Patch0:		%{name}-Makefile.patch
 URL:		http://bcz.emu-france.com/
 BuildRequires:	OpenGL-devel
 BuildRequires:	SDL-devel
-BuildRequires:	dos2unix
+BuildRequires:	rpmbuild(macros)
+BuildRequires:	sed >= 4.0
 BuildRequires:	unzip
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -27,7 +28,8 @@ przede wszystkim dla Linuksa.
 
 %prep
 %setup -q -n Osmose-%{file_version}
-dos2unix Makefile
+
+%undos Makefile
 %patch0 -p1
 
 %build
