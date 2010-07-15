@@ -12,7 +12,6 @@ Patch0:		%{name}-Makefile.patch
 URL:		http://bcz.emu-france.com/
 BuildRequires:	OpenGL-devel
 BuildRequires:	SDL-devel
-BuildRequires:	rpmbuild(macros)
 BuildRequires:	sed >= 4.0
 BuildRequires:	unzip
 BuildRequires:	zlib-devel
