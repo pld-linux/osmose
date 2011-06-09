@@ -2,14 +2,14 @@
 Summary:	Sega Master System Emulator
 Summary(pl.UTF-8):	Emulator Sega Master System
 Name:		osmose
-Version:	0.9.2
+Version:	0.9.96
 Release:	1
-License:	GPL v2+
+License:	GPL v3+
 Group:		X11/Applications/Games
-Source0:	http://bcz.emu-france.com/osmose/Osmose-%{file_version}-src.zip
-# Source0-md5:	4b9714d87c02d862256f169cb112e293
+Source0:	http://bcz.asterope.fr/osmose/Osmose-%{file_version}-QT.zip
+# Source0-md5:	256b393d83270620e98f39e0cfb11359
 Patch0:		%{name}-Makefile.patch
-URL:		http://bcz.emu-france.com/
+URL:		http://bcz.asterope.fr/
 BuildRequires:	OpenGL-devel
 BuildRequires:	SDL-devel
 BuildRequires:	rpmbuild(macros) >= 1.566
@@ -27,7 +27,7 @@ Osmose jest obiektowo zorientowanym systemem sega master stworzonym
 przede wszystkim dla Linuksa.
 
 %prep
-%setup -q -n Osmose-%{file_version}
+%setup -q -n Osmose-%{file_version}-QT
 
 %undos Makefile
 %patch0 -p1
@@ -36,19 +36,19 @@ przede wszystkim dla Linuksa.
 %{__make} \
 	CC="%{__cc}" \
 	CXX="%{__cxx}" \
-	CFLAGS="%{rpmcflags}" \
+	CXXFLAGS="%{rpmcxxflags}" \
 	LDFLAGS="%{rpmldflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_bindir}
 
-install osmose $RPM_BUILD_ROOT%{_bindir}
+install Osmose-0-9-96-QT $RPM_BUILD_ROOT%{_bindir}/%{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc changes.txt readme.txt
+%doc Readme.txt TODO.txt
 %attr(755,root,root) %{_bindir}/osmose
