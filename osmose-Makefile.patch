@@ -1,17 +1,11 @@
---- Osmose-0-9-1/Makefile~	2009-11-01 10:06:49.000000000 +0000
-+++ Osmose-0-9-1/Makefile	2009-11-26 17:09:36.846864071 +0000
-@@ -48,12 +48,12 @@
+--- Osmose-0-9-96-QT/Makefile~	2011-06-09 11:44:21.753728689 +0200
++++ Osmose-0-9-96-QT/Makefile	2011-06-09 11:46:34.184728662 +0200
+@@ -176,7 +176,7 @@
+ all: Makefile $(TARGET)
  
- .SUFFIXES: .cpp .o
- .cpp.o:
--	$(CC) $(CFLAGS) -c $*.cpp -o $*.o
-+	$(CXX) $(CFLAGS) -c $*.cpp -o $*.o
+ $(TARGET): ui_Configuration.h ui_LogWindow.h $(OBJECTS)  
+-	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
++	$(LINK) $(LFLAGS) $(LDFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
  
- all:  libs disasm osmose stripexe
- 
- osmose: $(z80_lib) $(OSM_OBJS) $(OPT_OBJS)
--	$(CC)  $(CFLAGS) $(OSM_OBJS) $(Z80_LIB) $(OPT_OBJS) $(UNZIP_LIB) $(Z_LIB) -o $(OSM_EXE) $(LFLAGS)
-+	$(CXX)  $(CFLAGS) $(LDFLAGS) $(OSM_OBJS) $(Z80_LIB) $(OPT_OBJS) $(UNZIP_LIB) $(Z_LIB) -o $(OSM_EXE) $(LFLAGS)
- 
- disasm: $(DISASM_OBJS)
- 
+ Makefile: Osmose-0-9-96-QT.pro  /usr/share/qt4/mkspecs/linux-g++/qmake.conf /usr/share/qt4/mkspecs/common/g++.conf \
+ 		/usr/share/qt4/mkspecs/common/unix.conf \
