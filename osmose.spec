@@ -36,6 +36,7 @@ przede wszystkim dla Linuksa.
 %{__make} \
 	CC="%{__cc}" \
 	CXX="%{__cxx}" \
+	LINK="%{__cxx}" \
 	CXXFLAGS="%{rpmcxxflags}" \
 	LDFLAGS="%{rpmldflags}"
 
